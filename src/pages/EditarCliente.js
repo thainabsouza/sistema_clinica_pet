@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../api';
+import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const EditarCliente = () => {
     const { id } = useParams();
@@ -31,36 +32,78 @@ const EditarCliente = () => {
     };
 
     return (
-        <div>
+        <Container className="mt-4">
             <h2>Editar Cliente</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Nome:
-                    <input type="text" name="nome" value={cliente.nome || ''} onChange={handleChange} required />
-                </label>
-                <label>
-                    Descrição:
-                    <input type="text" name="descricao" value={cliente.descricao || ''} onChange={handleChange} required />
-                </label>
-                <label>
-                    Foto:
-                    <input type="text" name="foto" value={cliente.foto || ''} onChange={handleChange} required />
-                </label>
-                <label>
-                    Categoria:
-                    <input type="text" name="categoria" value={cliente.categoria || ''} onChange={handleChange} required />
-                </label>
-                <label>
-                    Data de Nascimento:
-                    <input type="date" name="dataNascimento" value={cliente.dataNascimento || ''} onChange={handleChange} required />
-                </label>
-                <label>
-                    Disponível:
-                    <input type="checkbox" name="disponivel" checked={cliente.disponivel || false} onChange={handleChange} />
-                </label>
-                <button type="submit">Salvar</button>
-            </form>
-        </div>
+            <Form onSubmit={handleSubmit}>
+                <FormGroup>
+                    <Label for="nome">Nome:</Label>
+                    <Input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        value={cliente.nome || ''}
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="descricao">Descrição:</Label>
+                    <Input
+                        type="text"
+                        id="descricao"
+                        name="descricao"
+                        value={cliente.descricao || ''}
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="foto">Foto:</Label>
+                    <Input
+                        type="text"
+                        id="foto"
+                        name="foto"
+                        value={cliente.foto || ''}
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="categoria">Categoria:</Label>
+                    <Input
+                        type="text"
+                        id="categoria"
+                        name="categoria"
+                        value={cliente.categoria || ''}
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="dataNascimento">Data de Nascimento:</Label>
+                    <Input
+                        type="date"
+                        id="dataNascimento"
+                        name="dataNascimento"
+                        value={cliente.dataNascimento || ''}
+                        onChange={handleChange}
+                        required
+                    />
+                </FormGroup>
+                <FormGroup check>
+                    <Label check>
+                        <Input
+                            type="checkbox"
+                            name="disponivel"
+                            checked={cliente.disponivel || false}
+                            onChange={handleChange}
+                        />{' '}
+                        Disponível
+                    </Label>
+                </FormGroup>
+                <Button color="primary" type="submit">Salvar</Button>
+            </Form>
+        </Container>
     );
 };
 
