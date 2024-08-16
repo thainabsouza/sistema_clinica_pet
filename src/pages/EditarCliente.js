@@ -36,12 +36,12 @@ const EditarCliente = () => {
             <h2>Editar Cliente</h2>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label for="nome">Nome:</Label>
+                    <Label for="name">Nome:</Label>
                     <Input
                         type="text"
-                        id="nome"
-                        name="nome"
-                        value={cliente.nome || ''}
+                        id="name"
+                        name="name"
+                        value={cliente.name || ''}
                         onChange={handleChange}
                         required
                     />
